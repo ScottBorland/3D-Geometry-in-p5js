@@ -1,33 +1,37 @@
 let angle = 0;
 
+let kitten;
+
+let cam;
+
 function setup() {
 	createCanvas(400, 300, WEBGL);
 }
 
-function draw() {
+function preload(){
+	kitten = loadImage('Zucc_8575f0_6576694.jpg');
+}
 
+function draw() {
+	//ambientLight(255, 0, 0);
 	let dx = mouseX - width/2;
 	let dy = mouseY - height/2;
 	let v = createVector(dx, dy, 0);
-	v.normalize();
-	directionalLight(255, 255, 0, v);
-	//pointLight(255, 0, 0, mouseX -200, mouseY- 200, 200);
-
+	v.div(100);
+	ambientLight(255);
 	background(175);
 
-	noStroke();
-	//normalMaterial();
-	//fill(200, 0, 255);
 	rotateX(angle);
 	rotateZ(angle * 0.3);
 	rotateY(angle * 1.4);
-	//rect(0, 0, 150, 150);
-	//translate(mouseX - width/2, mouseY-height/2);
-	//translate(0, 0, mouseX);
 
-	//pointLight(255, 0, 0, mouseX-200, mouseY-200, 0);
-	ambientMaterial(255);
-	torus(100, 10);
+	noStroke();
+
+	texture(kitten);
+	box(100);
+	//torus(100, 10);
+	//ambientMaterial(255);
+
 
 	angle += 0.01;
 }
