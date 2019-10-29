@@ -9,10 +9,11 @@ function setup() {
 }
 
 function preload(){
-	kitten = loadImage('Zucc_8575f0_6576694.jpg');
+	kitten = loadImage('assets/Zucc_8575f0_6576694.jpg');
 }
 
 function draw() {
+	//orbitControl();
 	//ambientLight(255, 0, 0);
 	let dx = mouseX - width/2;
 	let dy = mouseY - height/2;
@@ -45,9 +46,19 @@ function draw() {
 
 	ortho(-200, 200, 200, -200, -1000, 1000);
 
-	//texture(kitten);
-	//torus(100, 10);
-	//ambientMaterial(255);
+	/*var renderer = new THREE.WebGLRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
+
+	var scene = new THREE.Scene();
+
+	var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+
+	var controls = new THREE.OrbitControls( camera, renderer.domElement );*/
+
+	/*texture(kitten);
+	torus(100, 10);
+	ambientMaterial(255);*/
 
 
 	angle += 0.03;
