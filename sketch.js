@@ -18,20 +18,37 @@ function draw() {
 	let dy = mouseY - height/2;
 	let v = createVector(dx, dy, 0);
 	v.div(100);
-	ambientLight(255);
-	background(175);
+	//ambientLight(255);
+	background(0);
 
-	rotateX(angle);
-	rotateZ(angle * 0.3);
-	rotateY(angle * 1.4);
+	/*let camx = random(-5, 5);
+	let camy = random(-5, 5);
+	let camz = random(-5, 5);
+	camera(camx, camy, camz + (height/2) / tan(PI/6), camx, 0, 0, 0, 1, 0);*/
 
-	noStroke();
+	//let fov = PI / 3;
+	//let cameraZ = (height / 2.0) / tan(fov/2.0);
+	//perspective(fov, width / height, cameraZ / 10.0, cameraZ * 10.0);
 
-	texture(kitten);
-	box(100);
+	pointLight(255, 255, 255, 0, -200, 200);
+
+	for(let x = -200; x < 200; x += 50){
+		push();
+		translate(x, 0, x - 200);
+		rotateX(angle);
+		rotateY(angle * 0.3);
+		rotateZ(angle * 1.2);
+		ambientMaterial(255);
+		box(25);
+		pop();
+	}
+
+	ortho(-200, 200, 200, -200, -1000, 1000);
+
+	//texture(kitten);
 	//torus(100, 10);
 	//ambientMaterial(255);
 
 
-	angle += 0.01;
+	angle += 0.03;
 }
